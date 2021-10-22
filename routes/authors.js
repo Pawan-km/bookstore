@@ -37,10 +37,11 @@ router.post("/", async (req, res) => {
     // res.redirect(`authors/${newAuthor.id}`)
     res.redirect(`authors`);
   } catch (e) {
+    console.log("error");
     console.log(e);
     res.render("authors/new", {
       author: author,
-      errorMessage: "Error creating Author",
+      errorMessage: e,
     });
   }
 });
