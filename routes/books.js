@@ -82,7 +82,7 @@ async function renderNewPage(res, book, hasError = false) {
       authors: authors,
       book: book,
     };
-    if (hasError) params.errorMessage = "Error Creating Book";
+    if (hasError) params.errorMessage = hasError;
     res.render("books/new", params);
   } catch {
     res.redirect("/books");
