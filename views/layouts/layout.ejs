@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Library</title>
+    <title>FilePond from CDN</title>
+
+    <!-- Filepond stylesheet -->
+
+    <link
+      href="https://unpkg.com/filepond/dist/filepond.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- We'll transform this input into a pond -->
     <%- include('../partials/header.ejs') %> <%-
     include('../partials/errorMessage.ejs') %> <%- body %>
+    <!-- Load FilePond library -->
+
+    <!-- Turn all file input elements into ponds -->
+    <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+    <script>
+      // Register the plugin
+      FilePond.registerPlugin(
+        FilePondPluginImagePreview,
+        FilePondPluginFileEncode,
+        FilePondPluginImageResize
+      );
+      FilePond.setOptions({
+        stylePanelAspectRatio: 150 / 100,
+        imageResizeTargetWidth: 100,
+        imageResizeTargetHeiht: 150,
+      });
+      FilePond.parse(document.body);
+
+      // ... FilePond initialisation code here
+    </script>
   </body>
 </html>
+
+<!-- 
+<link
+      href="https://unpkg.com/filepond/dist/filepond.css"
+      rel="stylesheet"
+    />
+    
+
+
+
+<script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+
+<script>
+   ;
+  FilePond.parse(document.body);
+</script>
+
+FilePond.registerPlugin(
+     FilePondPluginFileEncode,
+     FilePondPluginImagePreview,
+     FilePondPluginImageResize
+   )
+ -->
