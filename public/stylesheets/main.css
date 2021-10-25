@@ -1,0 +1,33 @@
+@import 'shared/variables.css';
+@import 'shared/fonts.css';
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600&family=Roboto:wght@400;500&family=Varela+Round&display=swap');
+
+:root{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    color: var(--color-text-light);
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.inner-container{
+    margin: 0 2rem;
+}
+
+.page-header{
+    font-size: 2rem;
+}
