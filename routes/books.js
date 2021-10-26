@@ -35,21 +35,22 @@ router.get("/new", async (req, res) => {
 
 // Create Book Route
 router.post("/", async (req, res) => {
-  const book = new Book({
+  let book
+
+  try {
+     book = new Book({
     title: req.body.title,
     author: req.body.author,
     publishDate: new Date(req.body.publishDate),
     pageCount: req.body.pageCount,
     description: req.body.description,
   });
-  saveCover(book, req.body.cover);
-
-  try {
+    saveCover(book, req.body.cover);
     const newBook = await book.save();
     // res.redirect(`books/${newBook.id}`);
     res.redirect(`books`);
   } catch (e) {
-    console.log(e);
+    console.log('new error ')
     renderNewPage(res, book, true);
   }
 });
