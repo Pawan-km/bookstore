@@ -2,6 +2,7 @@
 @import 'shared/fonts.css';
 @import 'shared/header.css';
 @import 'shared/buttons.css';
+@import 'shared/form.css';
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600&family=Roboto:wght@400;500&family=Varela+Round&display=swap');
 
 :root{
